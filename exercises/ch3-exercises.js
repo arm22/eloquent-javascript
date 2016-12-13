@@ -6,12 +6,12 @@
  * @param {Number} val2
  * @return {Number} minimum
  */
-function min(val1, val2) {
-    if (val1 < val2) {
-        return val1;
-    } else {
-        return val2;
-    }
+function min (val1, val2) {
+  if (val1 < val2) {
+    return val1;
+  } else {
+    return val2;
+  }
 }
 
 /**
@@ -21,16 +21,16 @@ function min(val1, val2) {
  * @param {Number} val
  * @return {Boolean} isEven
  */
-function isEven(val) {
-    if (!val) {
-        return true;
-    } else if (val === 1) {
-        return false;
-    } else if (val < 0) {
-        return isEven(-val);
-    } else {
-        return isEven(val-2);
-    }
+function isEven (val) {
+  if (!val) {
+    return true;
+  } else if (val === 1) {
+    return false;
+  } else if (val < 0) {
+    return isEven(-val);
+  } else {
+    return isEven(val - 2);
+  }
 }
 
 /**
@@ -40,14 +40,14 @@ function isEven(val) {
  * @param {String} chunk
  * @return {Number} count
  */
-function countBs(chunk) {
-    var count = 0;
-    for (var i = 0; i < chunk.length; i++) {
-        if (chunk.charAt(i) === 'B') {
-            count ++;
-        }
+function countBs (chunk) {
+  var count = 0;
+  for (var i = 0; i < chunk.length; i++) {
+    if (chunk.charAt(i) === 'B') {
+      count++;
     }
-    return count;
+  }
+  return count;
 }
 
 /**
@@ -57,14 +57,14 @@ function countBs(chunk) {
  * @param {String} char
  * @return {Number} countChar
  */
-function countChar(chunk, char) {
-    var count = 0;
-    for (var i = 0; i < chunk.length; i++) {
-        if (chunk.charAt(i) === char) {
-            count++;
-        }
+function countChar (chunk, char) {
+  var count = 0;
+  for (var i = 0; i < chunk.length; i++) {
+    if (chunk.charAt(i) === char) {
+      count++;
     }
-    return count;
+  }
+  return count;
 }
 
 console.log(min(0, 10));
@@ -74,5 +74,5 @@ console.log(isEven(50));
 console.log(isEven(75));
 console.log(isEven(-2));
 
-console.log(countBs("BBC"));
-console.log(countChar("kakkerlak", "k"));
+console.log(countBs('BBC'));
+console.log(countChar('kakkerlak', 'k'));

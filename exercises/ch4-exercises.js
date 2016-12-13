@@ -8,25 +8,25 @@
  * @param {Number} step
  * @return {Array} list
  */
-function range(start, end, step) {
-    var list = [];
-    if (step === undefined && start > end) {
-        step = -1;
-    } else if (step === undefined) {
-        step = 1;
-    } else {
-        step = step;
+function range (start, end, step) {
+  var list = [];
+  if (step === undefined && start > end) {
+    step = -1;
+  } else if (step === undefined) {
+    step = 1;
+  } else {
+    step = step;
+  }
+  if (step > 0) {
+    for (var i = start; i <= end; i += step) {
+      list.push(i);
     }
-    if (step > 0) {
-        for (var i = start; i <= end; i += step) {
-            list.push(i);
-        }
-    } else {
-        for (var i = start; i >= end; i += step) {
-            list.push(i);
-        }
+  } else {
+    for (var i = start; i >= end; i += step) {
+      list.push(i);
     }
-    return list;
+  }
+  return list;
 }
 
 /**
@@ -35,12 +35,12 @@ function range(start, end, step) {
  * @param {Array} nums
  * @return {Number} sum
  */
-function sum(nums) {
-    var sum = 0;
-    for (var i = 0; i < nums.length; i++) {
-        sum += nums[i];
-    }
-    return sum;
+function sum (nums) {
+  var sum = 0;
+  for (var i = 0; i < nums.length; i++) {
+    sum += nums[i];
+  }
+  return sum;
 }
 
 /**
@@ -49,12 +49,12 @@ function sum(nums) {
  * @param {Array} list
  * @return {Array} rev
  */
-function reverseArray(list) {
-    var rev = [];
-    for (var i = list.length - 1; i >= 0; i--) {
-        rev.push(list[i]);
-    }
-    return rev;
+function reverseArray (list) {
+  var rev = [];
+  for (var i = list.length - 1; i >= 0; i--) {
+    rev.push(list[i]);
+  }
+  return rev;
 }
 
 /**
@@ -63,12 +63,12 @@ function reverseArray(list) {
  * @param {Array} list
  * @return {Array} rev
  */
-function reverseArrayInPlace(list) {
-    for (var i = 0; i < list.length / 2; i++) {
-        var front = list[i];
-        list[i] = list[list.length - 1 - i];
-        list[list.length - 1 - i] = front;
-    }
+function reverseArrayInPlace (list) {
+  for (var i = 0; i < list.length / 2; i++) {
+    var front = list[i];
+    list[i] = list[list.length - 1 - i];
+    list[list.length - 1 - i] = front;
+  }
 }
 
 /**
@@ -78,12 +78,12 @@ function reverseArrayInPlace(list) {
  * @param {Array} arr
  * @return {Object} list
  */
-function arrayToList(arr) {
-    var list;
-    for (var i = arr.length; i > 0; i--) {
-        list = prepend(arr[i - 1], list);
-    }
-    return list;
+function arrayToList (arr) {
+  var list;
+  for (var i = arr.length; i > 0; i--) {
+    list = prepend(arr[i - 1], list);
+  }
+  return list;
 }
 
 /**
@@ -92,13 +92,13 @@ function arrayToList(arr) {
  * @param {List} list
  * @return {Object} arr
  */
-function listToArray(list) {
-    var arr = [];
-    while (list) {
-        arr.push(list.value);
-        list = list.rest;
-    }
-    return arr;
+function listToArray (list) {
+  var arr = [];
+  while (list) {
+    arr.push(list.value);
+    list = list.rest;
+  }
+  return arr;
 }
 
 /**
@@ -109,12 +109,12 @@ function listToArray(list) {
  * @param {Object} list
  * @return {Object} newList
  */
-function prepend(el, list) {
-    var newList = {
-        "value": el,
-        "rest": list || null,
-    }
-    return newList;
+function prepend (el, list) {
+  var newList = {
+    'value': el,
+    'rest': list || null
+  };
+  return newList;
 }
 
 /**
@@ -125,22 +125,22 @@ function prepend(el, list) {
  * @param {Number} index
  * @return {Element} el
  */
-function nth(list, index) {
-    var count = 0;
-    for (var node = list; node; node = node.rest) {
-        if (count === index) {
-            return node.value;
-        } else {
-            count++;
-        }
+function nth (list, index) {
+  var count = 0;
+  for (var node = list; node; node = node.rest) {
+    if (count === index) {
+      return node.value;
+    } else {
+      count++;
     }
+  }
 }
 
-console.log(range(1,10));
+console.log(range(1, 10));
 console.log(range(5, 2, -1));
 console.log(sum(range(1, 10)));
 
-console.log(reverseArray(["A", "B", "C"]));
+console.log(reverseArray(['A', 'B', 'C']));
 var arrayValue = [1, 2, 3, 4, 5, 6];
 reverseArrayInPlace(arrayValue);
 console.log(arrayValue);

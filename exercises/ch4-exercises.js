@@ -14,16 +14,14 @@ function range (start, end, step) {
     step = -1;
   } else if (step === undefined) {
     step = 1;
-  } else {
-    step = step;
   }
   if (step > 0) {
     for (var i = start; i <= end; i += step) {
       list.push(i);
     }
   } else {
-    for (var i = start; i >= end; i += step) {
-      list.push(i);
+    for (var j = start; j >= end; j += step) {
+      list.push(j);
     }
   }
   return list;

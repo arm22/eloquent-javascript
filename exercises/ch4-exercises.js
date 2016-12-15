@@ -121,16 +121,38 @@ function prepend (el, list) {
  *
  * @param {Object} list
  * @param {Number} index
- * @return {Element} el
+ * @return {Object} el
  */
 function nth (list, index) {
-  var count = 0;
-  for (var node = list; node; node = node.rest) {
-    if (count === index) {
-      return node.value;
-    } else {
-      count++;
+  if (index === 0) {
+    return list.value;
+  } else if (index === -1) {
+    return undefined;
+  } else {
+    return nth(list.rest, index - 1);
+  }
+}
+
+/**
+ * deepEqual() checks if two parameter values are deep equal and returns a boolean
+ *
+ * @param {Object} obj1
+ * @param {Object} obj2
+ * @return {Boolean} eql
+ */
+function deepEqual (obj1, obj2) {
+  if ((typeof obj1 === 'object' && obj1 != null) && (typeof obj2 === 'object' && obj2 != null)) {
+    if (Object.keys(obj1).length === Object.keys(obj2).length) {
+      for (var key in obj1) {
+        if (obj2[key] === undefined) {
+          return false;
+        } else {
+          return deepEqual(obj1[key], obj2[key]);
+        }
+      }
     }
+  } else {
+    return (obj1 === obj2);
   }
 }
 
@@ -147,3 +169,8 @@ console.log(arrayToList([10, 20]));
 console.log(listToArray(arrayToList([10, 20, 30])));
 console.log(prepend(10, prepend(20, null)));
 console.log(nth(arrayToList([10, 20, 30]), 1));
+
+var obj = {here: {is: 'an'}, object: 2};
+console.log(deepEqual(obj, obj));
+console.log(deepEqual(obj, {here: 1, object: 2}));
+console.log(deepEqual(obj, {here: {is: 'an'}, object: 2}));

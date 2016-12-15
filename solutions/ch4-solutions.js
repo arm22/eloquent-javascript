@@ -8,7 +8,7 @@ function range (start, end, step) {
       array.push(i);
     }
   } else {
-    for (var i = start; i >= end; i += step) {
+    for (var j = start; j >= end; j += step) {
       array.push(i);
     }
   }
@@ -61,7 +61,7 @@ function prepend (value, list) {
 function nth (list, n) {
   if (!list) {
     return undefined;
-  } else if (n == 0) { return list.value; } else {
+  } else if (n === 0) { return list.value; } else {
     return nth(list.rest, n - 1);
   }
 }
@@ -75,16 +75,21 @@ function deepEqual (a, b) {
     return false;
   }
 
-  var propsInA = 0, propsInB = 0;
+  var propsInA = 0;
+  var propsInB = 0;
 
-  for (var prop in a) { propsInA += 1; }
-
-  for (var prop in b) {
-    propsInB += 1;
-    if (!(prop in a) || !deepEqual(a[prop], b[prop])) { return false; }
+  for (var prop in a) {
+    propsInA += 1;
   }
 
-  return propsInA == propsInB;
+  for (var key in b) {
+    propsInB += 1;
+    if (!(key in a) || !deepEqual(a[key], b[key])) {
+      return false;
+    }
+  }
+
+  return propsInA === propsInB;
 }
 
 console.log(range(1, 10));

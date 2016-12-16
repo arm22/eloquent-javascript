@@ -2,7 +2,7 @@
  * Exercise #1
  * loopingTriangle() prints a triangle of '#' characters
  */
-function loopingTriangle () {
+function loopingTriangle() {
   var line = '';
   for (var i = 0; i < 7; i++) {
     line += '#';

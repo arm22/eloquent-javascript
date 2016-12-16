@@ -44,6 +44,7 @@ function sum (nums) {
 /**
  * Exercise #2
  * reverseArray() takes an array and returns a new array which is the reversed version of the param
+ *
  * @param {Array} list
  * @return {Array} rev
  */

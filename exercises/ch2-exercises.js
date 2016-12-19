@@ -2,9 +2,9 @@
  * Exercise #1
  * loopingTriangle() prints a triangle of '#' characters
  */
-function loopingTriangle() {
+function loopingTriangle () {
   var line = '';
-  for (var i = 0; i < 7; i++) {
+  for (var i = 0; i < 7; i += 1) {
     line += '#';
     console.log(line);
   }
@@ -37,8 +37,8 @@ function fizzBuzz () {
  */
 function chessBoard (size) {
   var board = '';
-  for (var i = 0; i < size; i++) {
-    for (var j = 0; j < size; j++) {
+  for (var i = 0; i < size; i += 1) {
+    for (var j = 0; j < size; j += 1) {
       if (!((i + j) % 2)) {
         board += ' ';
       } else {

@@ -9,7 +9,7 @@ function min (a, b) {
 
 // Exercise #2
 function isEven (n) {
-  if (n == 0) { return true; } else if (n == 1) {
+  if (n === 0) { return true; } else if (n === 1) {
     return false;
   } else if (n < 0) {
     return isEven(-n);
@@ -20,7 +20,7 @@ function isEven (n) {
 function countChar (string, ch) {
   var counted = 0;
   for (var i = 0; i < string.length; i++) {
-    if (string.charAt(i) == ch) {
+    if (string.charAt(i) === ch) {
       counted += 1;
     }
   }

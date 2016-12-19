@@ -34,11 +34,11 @@ function range (start, end, step) {
  * @return {Number} sum
  */
 function sum (nums) {
-  var sum = 0;
-  for (var i = 0; i < nums.length; i++) {
-    sum += nums[i];
+  var count = 0;
+  for (var i = 0; i < nums.length; i += 1) {
+    count += nums[i];
   }
-  return sum;
+  return count;
 }
 
 /**
@@ -129,9 +129,8 @@ function nth (list, index) {
     return list.value;
   } else if (index === -1) {
     return undefined;
-  } else {
-    return nth(list.rest, index - 1);
   }
+  return nth(list.rest, index - 1);
 }
 
 /**
@@ -147,9 +146,8 @@ function deepEqual (obj1, obj2) {
       for (var key in obj1) {
         if (obj2[key] === undefined) {
           return false;
-        } else {
-          return deepEqual(obj1[key], obj2[key]);
         }
+        return deepEqual(obj1[key], obj2[key]);
       }
     }
   } else {

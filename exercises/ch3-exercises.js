@@ -9,9 +9,8 @@
 function min (val1, val2) {
   if (val1 < val2) {
     return val1;
-  } else {
-    return val2;
   }
+  return val2;
 }
 
 /**
@@ -28,9 +27,8 @@ function isEven (val) {
     return false;
   } else if (val < 0) {
     return isEven(-val);
-  } else {
-    return isEven(val - 2);
   }
+  return isEven(val - 2);
 }
 
 /**
@@ -42,9 +40,9 @@ function isEven (val) {
  */
 function countBs (chunk) {
   var count = 0;
-  for (var i = 0; i < chunk.length; i++) {
+  for (var i = 0; i < chunk.length; i += 1) {
     if (chunk.charAt(i) === 'B') {
-      count++;
+      count += 1;
     }
   }
   return count;
@@ -59,9 +57,9 @@ function countBs (chunk) {
  */
 function countChar (chunk, char) {
   var count = 0;
-  for (var i = 0; i < chunk.length; i++) {
+  for (var i = 0; i < chunk.length; i += 1) {
     if (chunk.charAt(i) === char) {
-      count++;
+      count += 1;
     }
   }
   return count;

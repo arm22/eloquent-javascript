@@ -89,3 +89,40 @@ for (var century in centuryGroup) {
     return person.died - person.born;
   })));
 }
+
+/**
+ * Exercise #4
+ * every() checks if all elements in the parameterized array pass the predicate function
+ *
+ * @param {Array} array
+ * @param {Function} pred
+ * @return {Boolean} res
+ */
+function every (array, pred) {
+  for (var i = 0; i < array.length; i++) {
+    if (!pred(array[i])) {
+      return false;
+    }
+  }
+  return true;
+}
+
+/** some() checks if any elements in the parameterized array pass the predicate function
+ *
+ * @param {Array} array
+ * @param {Function} pred
+ * @return {Boolean} res
+ */
+function some (array, pred) {
+  for (var i = 0; i < array.length; i++) {
+    if (pred(array[i])) {
+      return true;
+    }
+  }
+  return false;
+}
+
+console.log(every([NaN, NaN, NaN], isNaN));
+console.log(every([NaN, NaN, 4], isNaN));
+console.log(some([NaN, 3, 4], isNaN));
+console.log(some([2, 3, 4], isNaN));

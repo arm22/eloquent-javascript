@@ -55,3 +55,37 @@ function birthAge (person) {
 }
 
 console.log(average(ANCESTRY_FILE.filter(hasKnownMother).map(birthAge)));
+
+/**
+ * Exercise #3
+ * groupBy() abstracts grouping the parameterized array by the parameterized grouping function
+ * and returns the grouped object
+ *
+ * @param {Array} array
+ * @param {Function} grouping
+ * @return {Object} group
+ */
+function groupBy (array, grouping) {
+  var group = {};
+  array.forEach(function (person) {
+    var currGroup = grouping(person);
+    if (group.hasOwnProperty(currGroup)) {
+      group[currGroup].push(person);
+    } else {
+      group[currGroup] = [person];
+    }
+  });
+  return group;
+}
+
+// Build a group for each century
+var centuryGroup = groupBy(ANCESTRY_FILE, function (person) {
+  return Math.ceil(person.died / 100);
+});
+
+// Calculate and print the average for each century
+for (var century in centuryGroup) {
+  console.log(century + ':', average(centuryGroup[century].map(function (person) {
+    return person.died - person.born;
+  })));
+}

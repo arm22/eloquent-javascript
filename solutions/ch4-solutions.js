@@ -92,18 +92,22 @@ function deepEqual (a, b) {
   return propsInA === propsInB;
 }
 
+// Exercise #1
 console.log(range(1, 10));
 console.log(range(5, 2, -1));
 console.log(sum(range(1, 10)));
 
+// Exercise #2
 console.log(reverseArray(['A', 'B', 'C']));
 var arrayValue = [1, 2, 3, 4, 5];
 reverseArrayInPlace(arrayValue);
 console.log(arrayValue);
 
+// Exercise #3
 console.log(arrayToList([10, 20]));
 console.log(listToArray(arrayToList([10, 20, 30])));
 
+// Exercise #4
 var obj = {here: {is: 'an'}, object: 2};
 console.log(deepEqual(obj, obj));
 console.log(deepEqual(obj, {here: 1, object: 2}));

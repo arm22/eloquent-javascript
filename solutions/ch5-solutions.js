@@ -42,6 +42,7 @@ var byCentury = groupBy(ancestry, function (person) {
   return Math.ceil(person.died / 100);
 });
 
+// Exercise #4
 for (var century in byCentury) {
   var ages = byCentury[century].map(function (person) {
     return person.died - person.born;

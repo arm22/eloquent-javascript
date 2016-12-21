@@ -134,6 +134,7 @@ function nth (list, index) {
 }
 
 /**
+ * Exercise #4
  * deepEqual() checks if two parameter values are deep equal and returns a boolean
  *
  * @param {Object} obj1
@@ -155,20 +156,24 @@ function deepEqual (obj1, obj2) {
   }
 }
 
+// Exercise #1
 console.log(range(1, 10));
 console.log(range(5, 2, -1));
 console.log(sum(range(1, 10)));
 
+// Exercise #2
 console.log(reverseArray(['A', 'B', 'C']));
 var arrayValue = [1, 2, 3, 4, 5, 6];
 reverseArrayInPlace(arrayValue);
 console.log(arrayValue);
 
+// Exercise #3
 console.log(arrayToList([10, 20]));
 console.log(listToArray(arrayToList([10, 20, 30])));
 console.log(prepend(10, prepend(20, null)));
 console.log(nth(arrayToList([10, 20, 30]), 1));
 
+// Exercise #4
 var obj = {here: {is: 'an'}, object: 2};
 console.log(deepEqual(obj, obj));
 console.log(deepEqual(obj, {here: 1, object: 2}));

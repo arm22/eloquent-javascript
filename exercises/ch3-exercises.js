@@ -65,12 +65,15 @@ function countChar (chunk, char) {
   return count;
 }
 
+// Exercise #1
 console.log(min(0, 10));
 console.log(min(0, -10));
 
+// Exercise #2
 console.log(isEven(50));
 console.log(isEven(75));
 console.log(isEven(-2));
 
+// Exercise #3
 console.log(countBs('BBC'));
 console.log(countChar('kakkerlak', 'k'));

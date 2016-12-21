@@ -122,6 +122,7 @@ function some (array, pred) {
   return false;
 }
 
+// Exercise #4
 console.log(every([NaN, NaN, NaN], isNaN));
 console.log(every([NaN, NaN, 4], isNaN));
 console.log(some([NaN, 3, 4], isNaN));

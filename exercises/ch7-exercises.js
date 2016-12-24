@@ -24,14 +24,34 @@ SmartPlantEater.prototype.act = function (view) {
 
 /**
  * Exercise #2
- * constructor for a predator critte
+ * constructor for a predator critter
  */
 function Tiger () {
-  
+  this.energy = 50;
+  this.direction = 'n';
+  this.recentHerbivores = 0;
+  this.moves = 0;
 }
 
 Tiger.prototype.act = function (view) {
-
+  this.moves += 1;
+  if (this.moves >= 20) {
+    this.recentHerbivores = 0;
+    this.moves = 0;
+  }
+  var space = view.find(' ');
+  if (this.energy > 50 && space) {
+    return {type: 'reproduce', direction: space};
+  }
+  var herbivores = view.findAll('O');
+  this.recentHerbivores += herbivores;
+  if (herbivores.length && (this.recentHerbivores >= 2)) {
+    return {type: 'eat', direction: randomElement(herbivores)};
+  }
+  if (view.look(this.direction) !== ' ' && space) {
+    this.direction = space;
+  }
+  return {type: 'move', direction: this.direction};
 };
 
 /**

@@ -1,3 +1,4 @@
+// Exercise #1
 function SmartPlantEater () {
   this.energy = 30;
   this.direction = 'e';
@@ -9,12 +10,13 @@ SmartPlantEater.prototype.act = function (view) {
   if (plants.length > 1) {
     return {type: 'eat', direction: randomElement(plants)};
   }
-  if (view.look(this.direction) != ' ' && space) {
+  if (view.look(this.direction) !== ' ' && space) {
     this.direction = space;
   }
   return {type: 'move', direction: this.direction};
 };
 
+// Exercise #2
 function Tiger () {
   this.energy = 100;
   this.direction = 'w';

@@ -50,6 +50,17 @@ Tiger.prototype.act = function (view) {
   return {type: 'move', direction: this.direction};
 };
 
+/**
+ * HELPER FUNCTION
+ * returns a random element from the passed in array
+ *
+ * @param  {Array} array
+ * @return {Element}
+ */
+function randomElement (array) {
+  return array[Math.floor(Math.random() * array.length)];
+}
+
 animateWorld(new LifelikeWorld(
   ['####################################################',
     '#                 ####         ****              ###',

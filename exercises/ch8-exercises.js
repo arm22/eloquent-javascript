@@ -53,17 +53,14 @@ var box = {
  * @return {[type]}      [description]
  */
 function withBoxUnlocked (body) {
-  var wasUnlocked = true;
-  if (box.locked) {
-    wasUnlocked = false;
-    box.unlock();
+  if (!box.locked) {
+    return box.unlock();
   }
+
   try {
-    body();
+    return body();
   } finally {
-    if (!wasUnlocked) {
-      box.lock();
-    }
+    box.lock();
   }
 }
 

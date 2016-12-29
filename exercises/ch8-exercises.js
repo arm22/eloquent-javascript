@@ -14,6 +14,7 @@ function primitiveMultiply (a, b) {
  *
  * @param  {Number} a
  * @param  {Number} b
+ *
  * @return {Numnber} result
  */
 function reliableMultiply (a, b) {
@@ -21,19 +22,64 @@ function reliableMultiply (a, b) {
     return primitiveMultiply(a, b);
   } catch (error) {
     if (error instanceof MultiplicatorUnitFailure) {
-      for (;;) {
-        try {
-          primitiveMultiply(a, b);
-          break;
-        } catch (error) {
-          throw error;
-        }
-      }
+      reliableMultiply(a, b);
     } else {
       throw error;
     }
   }
 }
 
+// Exercise #2
+var box = {
+  locked: true,
+  unlock: function () {
+    this.locked = false;
+  },
+  lock: function () {
+    this.locked = true;
+  },
+  _content: [],
+  get content () {
+    if (this.locked) throw new Error('Locked!');
+    return this._content;
+  }
+};
+
+/**
+ * withBoxUnlocked() performs the parameterized function on the box, with locking and unlocking
+ *
+ * @param  {function} body
+ *
+ * @return {[type]}      [description]
+ */
+function withBoxUnlocked (body) {
+  var wasUnlocked = true;
+  if (box.locked) {
+    wasUnlocked = false;
+    box.unlock();
+  }
+  try {
+    body();
+  } finally {
+    if (!wasUnlocked) {
+      box.lock();
+    }
+  }
+}
+
 // Exercise #1
 console.log(reliableMultiply(8, 8));
+
+// Exercise #2
+withBoxUnlocked(function () {
+  box.content.push('gold piece');
+});
+try {
+  withBoxUnlocked(function () {
+    throw new Error('Pirates on the horizon! Abort!');
+  });
+} catch (e) {
+  console.log('Error raised:', e);
+}
+
+console.log(box.locked);

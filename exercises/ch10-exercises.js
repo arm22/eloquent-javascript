@@ -1,4 +1,5 @@
 // Exercise #1
+
 var month = function () {
   var names = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
     'August', 'September', 'October', 'November', 'December'];
